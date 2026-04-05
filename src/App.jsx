@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Phone,
-  Menu,
-  X,
   Droplets,
   Wrench,
   Zap,
@@ -14,22 +12,10 @@ import {
   Lightbulb,
   Move,
   Hammer,
-  ChevronRight,
-  ShieldCheck,
-  ThumbsUp,
-  Star,
-  Clock,
-  CheckCircle2,
-  MapPin,
   ArrowRight,
-  Plus,
-  Trophy,
-  Users,
-  BadgeCheck,
   Instagram,
   Facebook,
   MessageCircle,
-  Cpu,
   Globe,
 } from "lucide-react";
 import heroImage from "./assets/hero.jpg";
@@ -42,33 +28,127 @@ const translations = {
     brandSub: "ხელოსანი",
     nav: { home: "მთავარი", services: "სერვისები", contact: "კონტაქტი" },
     hero: {
-      tag: "პროფესიონალური ხელოსანი 24/7",
-      title: "თქვენი სახლის",
-      titleAccent: "საუკეთესო",
-      titleEnd: "მეგობარი",
-      desc: "სანტექნიკა, ელექტროობა, რემონტი - ჩვენ ვგვარებთ ყველაფერს სწრაფად, ხარისხიანად და გარანტიით. ვიყენებთ უახლეს ტექნოლოგიებს.",
+      tag: "24/7 ავარიული გამოძახება",
+      title: "ხელოსნის სერვისი თბილისში",
+      titleSub: "სანტექნიკა? ელექტრობა? გამოგვიძახეთ ახლავე!",
+      desc: "პროფესიონალური ხელოსანი: წყლის ჟონვის აღმოფხვრა, მილების შეკეთება, კანალიზაციის გაწმენდა. ასევე ელექტრობა, საკეტები და სახლის სარემონტო სამუშაოები.",
       ctaCall: "დარეკვა",
       ctaWA: "WhatsApp",
     },
-    tech: {
-      title: "უახლესი ტექნოლოგიები",
-      desc: "ჩვენ ვიყენებთ თანამედროვე ხელსაწყოებს და ინოვაციურ მიდგომებს მაქსიმალური სიზუსტისთვის.",
-    },
     services: {
-      badge: "მომსახურება",
-      title: "რას ვაკეთებთ?",
+      title: "ჩვენი სერვისები",
+      mainBadge: "მთავარი სერვისი",
       items: [
-        { icon: <Droplets />, title: "წყლის გაჟონვა", cat: "სანტექნიკა", desc: "გაჟონვის სწრაფი დიაგნოსტიკა და აღმოფხვრა." },
-        { icon: <Wrench />, title: "მილების შეცვლა", cat: "სანტექნიკა", desc: "ძველი მილების შეცვლა ახალი, გამძლე მასალით." },
-        { icon: <Zap />, title: "კანალიზაცია", cat: "წმენდა", desc: "კანალიზაციის სისტემის სრული მოწესრიგება." },
-        { icon: <Trash2 />, title: "ჭედილობა", cat: "წმენდა", desc: "რთული ჭედილობების მოხსნა სპეციალური აპარატურით." },
-        { icon: <Thermometer />, title: "ქვაბების წმენდა", cat: "გათბობა", desc: "გათბობის ქვაბების პროფილაქტიკა და წმენდა." },
-        { icon: <Lock />, title: "კარის გახსნა", cat: "საკეტები", desc: "ჩაკეტილი კარების უსაფრთხო გახსნა დაზიანების გარეშე." },
-        { icon: <Truck />, title: "მასალები", cat: "ტრანსპორტი", desc: "საჭირო მასალების ადგილზე მიტანა და შერჩევა." },
-        { icon: <Lightbulb />, title: "ელექტროობა", cat: "ელექტროობა", desc: "ელ-გაყვანილობის მონტაჟი და დიაგნოსტიკა." },
-        { icon: <Move />, title: "ავეჯი", cat: "სერვისი", desc: "ავეჯის აწყობა, დაშლა და მცირე რემონტი." },
-        { icon: <Hammer />, title: "დემონტაჟი", cat: "ნგრევა", desc: "კედლების და კონსტრუქციების სწრაფი დემონტაჟი." },
-      ]
+        {
+          icon: <Droplets />,
+          title: "წყლის გაჟონვა",
+          subtitle: "გაჟონვის სწრაფი დიაგნოსტიკა და აღმოფხვრა",
+          cat: "სანტექნიკა",
+          isMain: true,
+          bullets: [
+            "წყლის ჟონვის დიაგნოსტიკა (დეტექტორით, კამერით)",
+            "გაჟონვის წყაროს სწრაფი დადგენა",
+            "სასწრაფო სამუშაოები და შეკეთება",
+          ],
+        },
+        {
+          icon: <Wrench />,
+          title: "მილების შეცვლა",
+          subtitle: "ძველი მილების განახლება ახალი მასალით",
+          cat: "სანტექნიკა",
+          bullets: [
+            "ძველი მილების სრული შეცვლა",
+            "ახალი, გამძლე მასალების გამოყენება",
+            "ხარისხის გარანტია",
+          ],
+        },
+        {
+          icon: <Zap />,
+          title: "კანალიზაცია",
+          subtitle: "კანალიზაციის სისტემის სრული მოწესრიგება",
+          cat: "წმენდა",
+          bullets: [
+            "კანალიზაციის სისტემის შემოწმება",
+            "ელექტრო ტროსით გაწმენდა",
+            "ვიდეო ინსპექცია",
+          ],
+        },
+        {
+          icon: <Trash2 />,
+          title: "ჭედილობა",
+          subtitle: "რთული ჭედილობების მოხსნა სპეციალური აპარატურით",
+          cat: "წმენდა",
+          bullets: [
+            "სპეციალური აპარატურით მოხსნა",
+            "ვანის და სამზარეულოს სიფონები",
+            "ჭედილობის პრევენცია",
+          ],
+        },
+        {
+          icon: <Thermometer />,
+          title: "ქვაბების წმენდა",
+          subtitle: "გათბობის სისტემის სრული სერვისი",
+          cat: "გათბობა",
+          bullets: [
+            "ქვაბის პროფილაქტიკა და წმენდა",
+            "რადიატორების გამოდევნება",
+            "გათბობის ეფექტიანობის გაზრდა",
+          ],
+        },
+        {
+          icon: <Lock />,
+          title: "კარის გახსნა",
+          subtitle: "ავარიული გახსნა დაზიანების გარეშე",
+          cat: "საკეტები",
+          bullets: [
+            "ჩაკეტილი კარების უსაფრთხო გახსნა",
+            "საკეტების შეცვლა და შეკეთება",
+          ],
+        },
+        {
+          icon: <Truck />,
+          title: "მასალები",
+          subtitle: "საჭირო მასალების შერჩევა და მიტანა",
+          cat: "ტრანსპორტი",
+          bullets: [
+            "სამშენებლო მასალების შერჩევა",
+            "ადგილზე მიწოდება",
+          ],
+        },
+        {
+          icon: <Lightbulb />,
+          title: "ელექტრობა",
+          subtitle: "ელ-გაყვანილობის მონტაჟი და დიაგნოსტიკა",
+          cat: "ელექტრობა",
+          bullets: [
+            "ელ-გაყვანილობის მონტაჟი",
+            "განათების სისტემები",
+            "ელექტრო პანელები",
+          ],
+        },
+        {
+          icon: <Move />,
+          title: "ავეჯი",
+          subtitle: "ავეჯის პროფესიული აწყობა და შეკეთება",
+          cat: "სერვისი",
+          bullets: [
+            "ავეჯის პროფესიული აწყობა",
+            "ავეჯის დაშლა",
+            "მცირე რემონტი",
+          ],
+        },
+        {
+          icon: <Hammer />,
+          title: "დემონტაჟი",
+          subtitle: "კედლების და კონსტრუქციების სწრაფი დემონტაჟი",
+          cat: "ნგრევა",
+          bullets: [
+            "კედლების სწრაფი დემონტაჟი",
+            "ნარჩენების გატანა",
+            "უსაფრთხო სამუშაოები",
+          ],
+        },
+      ],
     },
     contact: {
       badge: "კონტაქტი",
@@ -85,33 +165,127 @@ const translations = {
     brandSub: "Handyman",
     nav: { home: "Home", services: "Services", contact: "Contact" },
     hero: {
-      tag: "Professional Handyman 24/7",
-      title: "Your Home's",
-      titleAccent: "Best",
-      titleEnd: "Friend",
-      desc: "Plumbing, electricity, repairs - we solve everything quickly, with quality, and guarantee. Working with newest technologies.",
+      tag: "24/7 Emergency Call",
+      title: "Handyman Service in Tbilisi",
+      titleSub: "Plumbing? Electrical? Call us now!",
+      desc: "Professional handyman: water leak repair, pipe fixing, sewage cleaning. Also electrical works, locks, and all home repair jobs.",
       ctaCall: "Call Now",
       ctaWA: "WhatsApp",
     },
-    tech: {
-      title: "Advanced Technologies",
-      desc: "We utilize modern tools and innovative approaches for maximum precision and efficiency.",
-    },
     services: {
-      badge: "Services",
-      title: "What We Do?",
+      title: "Our Services",
+      mainBadge: "Main Service",
       items: [
-        { icon: <Droplets />, title: "Water Leaks", cat: "Plumbing", desc: "Fast diagnosis and elimination of leaks." },
-        { icon: <Wrench />, title: "Pipe Replacement", cat: "Plumbing", desc: "Replacing old pipes with new, durable materials." },
-        { icon: <Zap />, title: "Sewage System", cat: "Cleaning", desc: "Complete maintenance of sewage systems." },
-        { icon: <Trash2 />, title: "Clog Removal", cat: "Cleaning", desc: "Clearing difficult blockages with specialized equipment." },
-        { icon: <Thermometer />, title: "Boiler Cleaning", cat: "Heating", desc: "Maintenance and cleaning of heating boilers." },
-        { icon: <Lock />, title: "Door Opening", cat: "Locks", desc: "Safe opening of locked doors without damage." },
-        { icon: <Truck />, title: "Materials", cat: "Logistics", desc: "Selection and delivery of necessary materials." },
-        { icon: <Lightbulb />, title: "Electrical Works", cat: "Electricity", desc: "Installation and diagnostics of electrical wiring." },
-        { icon: <Move />, title: "Furniture", cat: "Service", desc: "Assembly, disassembly, and minor furniture repairs." },
-        { icon: <Hammer />, title: "Demolition", cat: "Demolition", desc: "Quick demolition of walls and structures." },
-      ]
+        {
+          icon: <Droplets />,
+          title: "Water Leaks",
+          subtitle: "Fast diagnosis and elimination of leaks",
+          cat: "Plumbing",
+          isMain: true,
+          bullets: [
+            "Water leak diagnosis (detector, camera)",
+            "Fast source detection",
+            "Emergency repairs",
+          ],
+        },
+        {
+          icon: <Wrench />,
+          title: "Pipe Replacement",
+          subtitle: "Replacing old pipes with durable materials",
+          cat: "Plumbing",
+          bullets: [
+            "Full pipe replacement",
+            "New durable materials",
+            "Quality guarantee",
+          ],
+        },
+        {
+          icon: <Zap />,
+          title: "Sewage System",
+          subtitle: "Complete sewage system maintenance",
+          cat: "Cleaning",
+          bullets: [
+            "Sewage system inspection",
+            "Electric cable cleaning",
+            "Video inspection",
+          ],
+        },
+        {
+          icon: <Trash2 />,
+          title: "Clog Removal",
+          subtitle: "Clearing blockages with specialized equipment",
+          cat: "Cleaning",
+          bullets: [
+            "Specialized equipment clearing",
+            "Bath and kitchen siphons",
+            "Clog prevention",
+          ],
+        },
+        {
+          icon: <Thermometer />,
+          title: "Boiler Cleaning",
+          subtitle: "Full heating system service",
+          cat: "Heating",
+          bullets: [
+            "Boiler maintenance and cleaning",
+            "Radiator flushing",
+            "Heating efficiency improvement",
+          ],
+        },
+        {
+          icon: <Lock />,
+          title: "Door Opening",
+          subtitle: "Emergency opening without damage",
+          cat: "Locks",
+          bullets: [
+            "Safe locked door opening",
+            "Lock replacement and repair",
+          ],
+        },
+        {
+          icon: <Truck />,
+          title: "Materials",
+          subtitle: "Selection and delivery of necessary materials",
+          cat: "Logistics",
+          bullets: [
+            "Building material selection",
+            "On-site delivery",
+          ],
+        },
+        {
+          icon: <Lightbulb />,
+          title: "Electrical Works",
+          subtitle: "Wiring installation and diagnostics",
+          cat: "Electricity",
+          bullets: [
+            "Electrical wiring installation",
+            "Lighting systems",
+            "Electrical panels",
+          ],
+        },
+        {
+          icon: <Move />,
+          title: "Furniture",
+          subtitle: "Professional furniture assembly and repair",
+          cat: "Service",
+          bullets: [
+            "Professional furniture assembly",
+            "Furniture disassembly",
+            "Minor repairs",
+          ],
+        },
+        {
+          icon: <Hammer />,
+          title: "Demolition",
+          subtitle: "Quick demolition of walls and structures",
+          cat: "Demolition",
+          bullets: [
+            "Quick wall demolition",
+            "Debris removal",
+            "Safe operations",
+          ],
+        },
+      ],
     },
     contact: {
       badge: "Contact",
@@ -229,93 +403,64 @@ const Navbar = ({ lang, setLang, t }) => {
   );
 };
 
-const Hero = ({ t, lang }) => (
-  <section className="relative min-h-screen flex items-center pt-40 pb-20 bg-mesh-dark overflow-hidden">
-    {/* Decorative Elements */}
-    <div className="absolute top-1/4 -right-20 w-96 h-96 bg-orange-600/10 blur-[120px] rounded-full" />
-    <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full" />
+const Hero = ({ t }) => (
+  <section className="relative min-h-screen flex items-center overflow-hidden">
+    {/* Full-screen background image */}
+    <img
+      src={heroImage}
+      className="absolute inset-0 w-full h-full object-cover"
+      alt="Handyman service"
+    />
+    {/* Dark overlay */}
+    <div className="absolute inset-0 bg-slate-950/65" />
 
-    <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+    <div className="relative z-10 w-full max-w-2xl mx-auto px-6 pt-32 pb-28">
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        className="min-w-0"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
       >
-        <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2.5 rounded-full mb-10 tech-badge">
-          <div className="w-2 h-2 bg-orange-500 rounded-full animate-ping" />
-          <span className="text-[10px] font-black tracking-[0.3em] uppercase text-white/80">
-            {t.hero.tag}
-          </span>
+        {/* Orange badge */}
+        <div className="inline-block bg-orange-500 text-white text-xs font-black px-4 py-2 rounded mb-8 uppercase tracking-widest">
+          {t.hero.tag}
         </div>
-        <h1 className="text-fluid-h1 font-black text-white mb-6 lg:mb-10 tracking-tight">
-          {t.hero.title} <br />
-          <span className="text-neon italic">{t.hero.titleAccent}</span> <br />
-          {t.hero.titleEnd}
+
+        {/* Title */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4 leading-tight">
+          {t.hero.title}
         </h1>
-        <p className="text-lg lg:text-xl text-white/50 mb-8 lg:mb-12 max-w-xl leading-relaxed font-medium">
+
+        {/* Blue italic subtitle */}
+        <p className="text-xl sm:text-2xl text-blue-400 font-bold italic mb-6 leading-snug">
+          {t.hero.titleSub}
+        </p>
+
+        {/* Description */}
+        <p className="text-white/70 text-base leading-relaxed mb-10 max-w-lg">
           {t.hero.desc}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 lg:gap-6">
+        {/* CTA Buttons */}
+        <div className="flex flex-col gap-4">
           <a
             href="tel:593941496"
-            className="w-full sm:w-auto bg-orange-600 text-white px-10 py-5 rounded-2xl font-black text-lg shadow-[0_20px_40px_rgba(234,88,12,0.3)] hover:scale-105 transition-all flex items-center justify-center gap-3 group"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-black text-lg flex items-center justify-center gap-3 transition-all shadow-lg"
           >
-            <Phone size={22} className="group-hover:rotate-12 transition-transform" />
-            {t.hero.ctaCall}
+            <Phone size={22} />
+            <span className="flex flex-col items-start leading-tight">
+              <span className="text-sm font-bold opacity-80">{t.hero.ctaCall}</span>
+              <span className="text-lg">593 94 14 96</span>
+            </span>
           </a>
           <a
             href="https://wa.me/995593941496"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-white/5 border border-white/10 text-white px-10 py-5 rounded-2xl font-black text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-3 backdrop-blur-xl group"
+            className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-2xl font-black text-lg flex items-center justify-center gap-3 transition-all shadow-lg"
           >
-            <MessageCircle size={22} className="text-green-500 group-hover:scale-110 transition-transform" />
+            <MessageCircle size={22} />
             {t.hero.ctaWA}
           </a>
-        </div>
-
-        {/* Tech Mention Badge */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="mt-16 flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 w-fit"
-        >
-          <div className="bg-blue-600/20 p-2 rounded-lg text-blue-400">
-            <Cpu size={20} className="animate-pulse" />
-          </div>
-          <div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-white/80">{t.tech.title}</p>
-            <p className="text-[11px] text-white/40">{lang === 'ka' ? 'სმარტ გადაწყვეტილებები' : 'Smart Solutions'}</p>
-          </div>
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2 }}
-        className="relative mt-12 lg:mt-0 flex justify-center"
-      >
-        <div className="relative">
-          <div className="absolute -inset-4 bg-gradient-to-tr from-orange-600/50 to-blue-600/50 rounded-[4.5rem] blur-2xl opacity-20 animate-pulse" />
-          <div className="rounded-[2.5rem] lg:rounded-[4rem] overflow-hidden border-[6px] lg:border-[12px] border-white/5 shadow-2xl aspect-[4/5] lg:h-[700px] relative">
-            <img
-              src={heroImage}
-              className="w-full h-full object-cover opacity-90 scale-105 hover:scale-100 transition-transform duration-[2s]"
-              alt="Handyman service"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
-            <div className="absolute bottom-10 left-10 right-10 p-6 dark-glass rounded-3xl floating">
-              <div className="flex items-center gap-4 mb-2">
-                <CheckCircle2 className="text-orange-500" size={24} />
-                <span className="text-xl font-black text-white">{lang === 'ka' ? '10+ წლიანი გამოცდილება' : '10+ Years Experience'}</span>
-              </div>
-              <p className="text-sm text-white/60">{lang === 'ka' ? 'ხარისხი გარანტირებულია' : 'Quality is guaranteed'}</p>
-            </div>
-          </div>
         </div>
       </motion.div>
     </div>
@@ -324,48 +469,58 @@ const Hero = ({ t, lang }) => (
 
 const Services = ({ t }) => {
   return (
-    <section id="services" className="py-40 bg-slate-950 relative overflow-hidden">
+    <section id="services" className="py-20 bg-slate-950 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20 lg:mb-32">
-          <motion.h2
-            {...fadeInUp}
-            className="text-orange-500 font-black uppercase tracking-[0.4em] text-xs mb-6"
-          >
-            {t.services.badge}
-          </motion.h2>
-          <motion.h3
-            {...fadeInUp}
-            className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter"
-          >
-            {t.services.title}
-          </motion.h3>
-        </div>
+      <div className="max-w-5xl mx-auto px-6">
+        <motion.h2
+          {...fadeInUp}
+          className="text-3xl md:text-4xl font-black text-white mb-10"
+        >
+          {t.services.title}
+        </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {t.services.items.map((s, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="neon-card p-10 rounded-[3rem] group"
+              transition={{ delay: i * 0.07 }}
+              className={`p-6 rounded-3xl bg-slate-800/70 border ${s.isMain ? "border-blue-500/60" : "border-white/5"} backdrop-blur-sm`}
             >
-              <div className="bg-orange-600/10 w-16 h-16 rounded-2xl flex items-center justify-center text-orange-500 mb-8 group-hover:bg-orange-600 group-hover:text-white group-hover:rotate-[360deg] transition-all duration-700">
-                {React.cloneElement(s.icon, { size: 32 })}
+              {/* Icon */}
+              <div className="bg-slate-700/60 w-14 h-14 rounded-2xl flex items-center justify-center text-blue-400 mb-4">
+                {React.cloneElement(s.icon, { size: 26 })}
               </div>
-              <h4 className="text-xl font-black text-white mb-3 group-hover:text-orange-500 transition-colors uppercase tracking-tight">{s.title}</h4>
-              <p className="text-sm text-white/40 mb-6 leading-relaxed font-medium">
-                {s.desc}
-              </p>
-              <div className="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/20">
-                  {s.cat}
+
+              {/* Main badge */}
+              {s.isMain && (
+                <span className="inline-block bg-blue-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-3">
+                  {t.services.mainBadge}
                 </span>
-                <Plus size={16} className="text-orange-500/50 group-hover:rotate-90 transition-transform" />
-              </div>
+              )}
+
+              {/* Title */}
+              <h4 className="text-lg font-black text-white leading-tight mb-1">{s.title}</h4>
+
+              {/* Subtitle */}
+              <p className="text-blue-400 text-sm font-semibold mb-4">{s.subtitle}</p>
+
+              {/* Bullet list */}
+              <ul className="space-y-2.5">
+                {s.bullets.map((item, j) => (
+                  <li key={j} className="flex items-start gap-2.5 text-white/80 text-sm leading-snug">
+                    {s.isMain ? (
+                      <Droplets size={15} className="text-blue-400 mt-0.5 flex-shrink-0" />
+                    ) : (
+                      <span className="w-2 h-2 bg-orange-500 rounded-full mt-1.5 flex-shrink-0" />
+                    )}
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
@@ -467,7 +622,7 @@ export default function App() {
   return (
     <div className={`min-h-screen bg-slate-950 selection:bg-orange-600 selection:text-white ${lang === 'en' ? 'font-outfit' : ''}`}>
       <Navbar lang={lang} setLang={setLang} t={t} />
-      <Hero t={t} lang={lang} />
+      <Hero t={t} />
       <Services t={t} />
       <Contact t={t} lang={lang} />
 
