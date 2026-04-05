@@ -1,0 +1,8 @@
+﻿Eurostile GEO_Nus Black Italic-21273687974.ttf
+Eurostile GEO_Nus Black-21273687974.ttf
+Eurostile GEO_Nus Bold Italic-21273687974.ttf
+Eurostile GEO_Nus Bold-21273687974.ttf
+Eurostile GEO_Nus Demi Italic-21273687974.ttf
+Eurostile GEO_Nus Demi-21273687974.ttf
+Eurostile GEO_Nus Italic-21273687974.ttf
+Eurostile GEO_Nus-21273687974.ttf

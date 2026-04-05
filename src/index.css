@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;700;900&family=Outfit:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "EurostileGEO";
+  src: url("/fonts/Eurostile-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EurostileGEO";
+  src: url("/fonts/Eurostile-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EurostileGEO";
+  src: url("/fonts/Eurostile-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dachi The Lynx';
+  src: url("/fonts/Dachi%20the%20Lynx-46841546889.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --brand-black: #020617;
+  --brand-navy: #0f172a;
+  --brand-accent: #f97316;
+  --brand-info: #38bdf8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--brand-black);
+    color: #f1f5f9;
+    font-family: "Outfit", "Noto Sans Georgian", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Outfit", "Dachi The Lynx", "Noto Sans Georgian", system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+}
+
+.bg-mesh-dark {
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(249, 115, 22, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(56, 189, 248, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(15, 23, 42, 1) 0%,
+      #020617 100%
+    );
+}
+
+.text-neon {
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.3));
+}
+
+.dark-glass {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.neon-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neon-card:hover {
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(249, 115, 22, 0.2);
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.text-fluid-h1 {
+  font-size: clamp(2.2rem, 9vw, 5.5rem);
+  line-height: 1;
+  font-weight: 900;
+  text-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.03em;
+}
+
+.tech-badge {
+  background: linear-gradient(90deg, rgba(249, 115, 22, 0.1), rgba(56, 189, 248, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+@layer base {
+  h2, h3 {
+    text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  }
+}
+
